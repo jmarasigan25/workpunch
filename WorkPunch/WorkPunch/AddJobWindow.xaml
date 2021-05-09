@@ -1,0 +1,28 @@
+﻿<Window x:Class="WorkPunch.AddJobWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WorkPunch"
+        mc:Ignorable="d"
+        Title="AddJobWindow" Height="450" Width="800">
+    <Grid>
+        <TextBlock HorizontalAlignment="Center" Margin="10,10,0,0" TextWrapping="Wrap" Text="Add a job" VerticalAlignment="Top" FontSize="36"/>
+
+        <TextBlock HorizontalAlignment="Left" Margin="350,88,0,0" TextWrapping="Wrap" Text="Company" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="351,104,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Name="companyTextBox"/>
+        
+        <TextBlock HorizontalAlignment="Left" Margin="350,152,0,0" TextWrapping="Wrap" Text="Job Title" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="351,169,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Name="jobTitleTextBox"/>
+
+        <TextBlock HorizontalAlignment="Left" Margin="351,222,0,0" TextWrapping="Wrap" Text="Hourly Rate" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="350,238,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Name="hourlyRateTextBox"/>
+
+        <TextBlock HorizontalAlignment="Left" Margin="351,289,0,0" TextWrapping="Wrap" Text="Paid Break" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="351,310,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Name="paidBreakTextBox"/>
+        
+        <Button Content="Add" HorizontalAlignment="Left" Margin="478,363,0,0" VerticalAlignment="Top" Width="75" Name="addJobButton"/>
+        <Button Content="Cancel" HorizontalAlignment="Left" Margin="276,363,0,0" VerticalAlignment="Top" Width="75" Name="cancelJobButton"/>
+
+    </Grid>
+</Window>
