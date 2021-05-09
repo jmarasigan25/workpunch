@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -23,6 +24,26 @@ namespace WorkPunch
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void saveButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void invoiceButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void jobComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+        private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
+        {
+         
+         
         }
     }
 }
