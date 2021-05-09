@@ -24,10 +24,23 @@
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
+  
         <Grid HorizontalAlignment="Left" Height="419" VerticalAlignment="Top" Width="603"/>
+        <!--  Misc-->
         <TextBlock Text="Payed Break" Grid.Row="0" Grid.Column="0" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
-        <TextBlock Text="Hourly Pay" Grid.Row="1" Grid.Column="0" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+        <TextBox Text="" Grid.Row="0" Grid.Column="1" FontSize="16" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Stretch"></TextBox>
+
+        <TextBlock Name="payedBreakTextBlock" Text="Hourly Pay" Grid.Row="1" Grid.Column="0" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+        <TextBox Name="hourlyPayTextBlock"  Text="" Grid.Row="1" Grid.Column="1" FontSize="16" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Stretch"></TextBox>
+        <ComboBox Name="jobComboBox" Grid.Row="0" Grid.Column="3" SelectionChanged="jobComboBox_SelectionChanged">  </ComboBox>
+
+
+        <!-- Days -->
         <TextBlock Text="Day" Grid.Row="2" Grid.Column="0" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
         <TextBlock Text="Monday" Grid.Row="3" Grid.Column="0" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
         <TextBlock Text="Tuesday" Grid.Row="4" Grid.Column="0" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
@@ -36,5 +49,48 @@
         <TextBlock Text="Friday" Grid.Row="7" Grid.Column="0" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
         <TextBlock Text="Saturday" Grid.Row="8" Grid.Column="0" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
         <TextBlock Text="Sunday" Grid.Row="9" Grid.Column="0" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+
+        <!--Hours Worked-->
+        <TextBlock Text="Hours Works" Grid.Row="2" Grid.Column="1" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+        <TextBox  Name="mondayHoursWorkedTextBox" PreviewTextInput="NumberValidationTextBox" Text="" Grid.Row="3" Grid.Column="1" FontSize="16" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Stretch"></TextBox>
+        <TextBox Name="tuesdayHoursWorkedTextBox" Text="" Grid.Row="4" Grid.Column="1" FontSize="16" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Stretch"></TextBox>
+        <TextBox Name="wednedayHoursWorkedTextBox" Text="" Grid.Row="5" Grid.Column="1" FontSize="16" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Stretch"></TextBox>
+        <TextBox Name="thursdayHoursWorkedTextBox" Text="" Grid.Row="6" Grid.Column="1" FontSize="16" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Stretch"></TextBox>
+        <TextBox Name="fridayHoursWorkedTextBox" Text="" Grid.Row="7" Grid.Column="1" FontSize="16" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Stretch"></TextBox>
+        <TextBox Name="saturdayHoursWorkedTextBox" Text="" Grid.Row="8" Grid.Column="1" FontSize="16" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Stretch"></TextBox>
+        <TextBox Name="sundayHoursWorkedTextBox" Text="" Grid.Row="9" Grid.Column="1" FontSize="16" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Stretch"></TextBox>
+
+        <!-- Lunch Hours -->
+        <TextBlock Text="Lunch Break" Grid.Row="2" Grid.Column="2" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+        <TextBox Name="mondayLunchTextBox" Text="" Grid.Row="3" Grid.Column="2" FontSize="16" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Stretch"></TextBox>
+        <TextBox Name="tuesdayLunchTextBox" Text="" Grid.Row="4" Grid.Column="2" FontSize="16" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Stretch"></TextBox>
+        <TextBox Name="wednesdayLunchTextBox" Text="" Grid.Row="5" Grid.Column="2" FontSize="16" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Stretch"></TextBox>
+        <TextBox Name="thursdayLunchTextBox" Text="" Grid.Row="6" Grid.Column="2" FontSize="16" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Stretch"></TextBox>
+        <TextBox Name="fridayLunchTextBox" Text="" Grid.Row="7" Grid.Column="2" FontSize="16" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Stretch"></TextBox>
+        <TextBox Name="saturdayLunchTextBox" Text="" Grid.Row="8" Grid.Column="2" FontSize="16" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Stretch"></TextBox>
+        <TextBox Name="sundayLunchTextBox" Text="" Grid.Row="9" Grid.Column="2" FontSize="16" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Stretch"></TextBox>
+    
+        <!-- Break Hours -->
+        <TextBlock Text="Break" Grid.Row="2" Grid.Column="3" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+        <TextBox Name="mondayBreakTextBox" Text="" Grid.Row="3" Grid.Column="3" FontSize="16" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Stretch"></TextBox>
+        <TextBox Name="tuesdayBreakTextBox" Text="" Grid.Row="4" Grid.Column="3" FontSize="16" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Stretch"></TextBox>
+        <TextBox Name="wednesdayBreakTextBox" Text="" Grid.Row="5" Grid.Column="3" FontSize="16" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Stretch"></TextBox>
+        <TextBox Name="thursdayBreakTextBox" Text="" Grid.Row="6" Grid.Column="3" FontSize="16" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Stretch"></TextBox>
+        <TextBox Name="fridayBreakTextBox" Text="" Grid.Row="7" Grid.Column="3" FontSize="16" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Stretch"></TextBox>
+        <TextBox Name="saturdayBreakTextBox" Text="" Grid.Row="8" Grid.Column="3" FontSize="16" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Stretch"></TextBox>
+        <TextBox Name="sundayBreakTextBox" Text="" Grid.Row="9" Grid.Column="3" FontSize="16" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Stretch"></TextBox>
+        
+        <!-- Pay Display -->
+        <TextBlock Text="Total Hours" Grid.Row="11" Grid.Column="0" FontSize="16" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Stretch"></TextBlock>
+        <TextBlock Text="Overtime" Grid.Row="12" Grid.Column="0" FontSize="16" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Stretch"></TextBlock>
+        <TextBlock Text="Total Pay" Grid.Row="13" Grid.Column="0" FontSize="16" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Stretch"></TextBlock>
+       
+        <TextBlock Name="totalHoursTextBlock" Text="" Grid.Row="11" Grid.Column="1" FontSize="16" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Stretch"></TextBlock>
+        <TextBlock Name="overtimeTextBlock" Text="" Grid.Row="12" Grid.Column="1" FontSize="16" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Stretch"></TextBlock>
+        <TextBlock Name="totalPayTextBlock" Text="" Grid.Row="13" Grid.Column="1" FontSize="16" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Stretch"></TextBlock>
+
+        <!-- Save/Generate Invoice -->
+        <Button Name="saveButton" Grid.Row="11" Grid.RowSpan="2" Grid.Column="2" FontSize="16" HorizontalAlignment="Stretch" Click="saveButton_Click" >Save</Button>
+        <Button Name="invoiceButton" Grid.Row="11" Grid.RowSpan="2" Grid.Column="3" FontSize="16" HorizontalAlignment="Stretch" Click="invoiceButton_Click">Invoice</Button>
     </Grid>
 </Window>

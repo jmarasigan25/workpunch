@@ -59,6 +59,9 @@
     <Compile Include="Model\Invoice.cs" />
     <Compile Include="Model\Job.cs" />
     <Compile Include="Model\Product.cs" />
+    <Compile Include="Model\tes2.cs" />
+    <Compile Include="Model\test.cs" />
+    <Compile Include="Model\Test1.cs" />
     <Compile Include="Model\Work_Day.cs" />
     <Compile Include="Model\Work_Week.cs" />
     <Page Include="MainWindow.xaml">
