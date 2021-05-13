@@ -21,7 +21,7 @@
         <TextBlock HorizontalAlignment="Left" Margin="351,289,0,0" TextWrapping="Wrap" Text="Paid Break" VerticalAlignment="Top"/>
         <TextBox HorizontalAlignment="Left" Height="23" Margin="351,310,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Name="paidBreakTextBox"/>
         
-        <Button Content="Add" HorizontalAlignment="Left" Margin="478,363,0,0" VerticalAlignment="Top" Width="75" Name="addJobButton"/>
+        <Button Content="Add" HorizontalAlignment="Left" Margin="478,363,0,0" VerticalAlignment="Top" Width="75" Name="addJobButton" Click="addJobButton_Click"/>
         <Button Content="Cancel" HorizontalAlignment="Left" Margin="276,363,0,0" VerticalAlignment="Top" Width="75" Name="cancelJobButton"/>
 
     </Grid>
