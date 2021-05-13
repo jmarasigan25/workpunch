@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WorkPunch
 {
-    class Job
+    public class Job
     {
         private string jobTitle;
         private string companyName;
@@ -18,5 +18,24 @@ namespace WorkPunch
 
         }
 
+        public void setJobTitle(string jobTitle)
+        {
+            this.jobTitle = jobTitle;
+        }
+
+        public void setCompanyName(string companyName)
+        {
+            this.companyName = companyName;
+        }
+
+        public void setHourlyRate(double hourlyRate)
+        {
+            this.hourlyRate = hourlyRate;
+        }
+
+        public void setPaidBreak(double paidBreak)
+        {
+            this.paidBreak = paidBreak;
+        }
     }
 }
