@@ -11,6 +11,7 @@ namespace WorkPunch
         private string jobTitle;
         private string companyName;
         private double hourlyRate;
+        private double paidBreak;
 
         public Job()
         {
