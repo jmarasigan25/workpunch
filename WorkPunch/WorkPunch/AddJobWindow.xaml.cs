@@ -19,13 +19,51 @@ namespace WorkPunch
     /// </summary>
     public partial class AddJobWindow : Window
     {
+        List<Job> jobsList;
         public AddJobWindow()
         {
             InitializeComponent();
 
-            
+            //this.jobsList = jobsList;
         }
 
+        private void addJobButton_Click(object sender, RoutedEventArgs e)
+        {
+            Job job = new Job();
 
+            job.setJobTitle(jobTitleTextBox.Text);
+            job.setCompanyName(companyTextBox.Text);
+
+            double hourlyRate;
+            double paidBreak;
+
+            if (!double.TryParse(hourlyRateTextBox.Text, out hourlyRate) ||hourlyRate<=0)
+            {
+                paidBreak = -1;
+                MessageBox.Show("Input a valid hourly rate");
+            }
+            else
+            {
+                job.setHourlyRate(hourlyRate);
+            }
+
+            if (!double.TryParse(paidBreakTextBox.Text, out paidBreak) || paidBreak<=0)
+            {
+                paidBreak = -1;
+                MessageBox.Show("Input a valid paid break");
+            }
+            else
+            {
+                job.setPaidBreak(paidBreak);
+            }
+
+
+            if (!String.IsNullOrEmpty(jobTitleTextBox.Text) && !String.IsNullOrEmpty(companyTextBox.Text) && hourlyRate>0 && paidBreak>0)
+            {
+                MessageBox.Show("Job added succesfully");
+                //jobsList.Add(job);
+            }
+            
+        }
     }
 }
