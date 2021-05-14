@@ -14,10 +14,23 @@ namespace WorkPunch
         private List<Job> jobs;
         private List<Work_Week> workWeeks;
 
-        public Employee()
+        public Employee(int id, string name, int age)
         {
-
+            this.id = id;
+            this.name = name;
+            this.age = age;
+            jobs = new List<Job>();
+            workWeeks = new List<Work_Week>();
         }
 
+        public List<Job> getJobs()
+        {
+            return jobs;
+        }
+
+        public List<Work_Week> getWorkWeeks()
+        {
+            return workWeeks;
+        }
     }
 }
