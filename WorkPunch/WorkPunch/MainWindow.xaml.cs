@@ -21,11 +21,23 @@ namespace WorkPunch
     /// </summary>
     public partial class MainWindow : Window
     {
+        Dictionary<string, Double> dayHour = new Dictionary<string, double>();
+        Dictionary<string, Double> dayBreak = new Dictionary<string, double>();
+        Dictionary<string, Double> dayLunch = new Dictionary<string, double>();
+
+        double totalHours;
+        double payedHours;
+        double totalLunch;
+        double totalBreak;
         public MainWindow()
         {
             InitializeComponent();
-        }
 
+        }
+        public void InitializeHours()
+        {
+
+        }
         private void saveButton_Click(object sender, RoutedEventArgs e)
         {
 
@@ -42,8 +54,26 @@ namespace WorkPunch
         }
         private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
         {
-         
-         
+            int hours;
+            var textBox = sender as TextBox;
+            if (int.TryParse(e.Text, out hours)|| e.Text==".")
+                e.Handled = false;
+            else
+                e.Handled = true;
+            if (e.Text == "." && textBox.Text.Contains("."))
+                e.Handled = true;
+        }
+        private void calculateHoursWorked()
+        {
+            totalHours = 0;
+     
+
+        }
+        private void updatedHours(object sender, TextChangedEventArgs e)
+        {
+            var text = sender as TextBox;
+            string temp = text.Text;
+
         }
     }
 }

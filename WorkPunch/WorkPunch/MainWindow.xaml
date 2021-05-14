@@ -33,10 +33,10 @@
         <Grid HorizontalAlignment="Left" Height="419" VerticalAlignment="Top" Width="603"/>
         <!--  Misc-->
         <TextBlock Text="Payed Break" Grid.Row="0" Grid.Column="0" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
-        <TextBox Text="" Grid.Row="0" Grid.Column="1" FontSize="16" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Stretch"></TextBox>
+        <TextBox Text="0.5" Grid.Row="0" Grid.Column="1" FontSize="16" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Stretch"></TextBox>
 
         <TextBlock Name="payedBreakTextBlock" Text="Hourly Pay" Grid.Row="1" Grid.Column="0" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
-        <TextBox Name="hourlyPayTextBlock"  Text="" Grid.Row="1" Grid.Column="1" FontSize="16" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Stretch"></TextBox>
+        <TextBox Name="hourlyPayTextBlock"  Text="20" Grid.Row="1" Grid.Column="1" FontSize="16" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Stretch"></TextBox>
         <ComboBox Name="jobComboBox" Grid.Row="0" Grid.Column="3" SelectionChanged="jobComboBox_SelectionChanged">  </ComboBox>
 
 
@@ -52,33 +52,33 @@
 
         <!--Hours Worked-->
         <TextBlock Text="Hours Works" Grid.Row="2" Grid.Column="1" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
-        <TextBox  Name="mondayHoursWorkedTextBox" PreviewTextInput="NumberValidationTextBox" Text="" Grid.Row="3" Grid.Column="1" FontSize="16" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Stretch"></TextBox>
-        <TextBox Name="tuesdayHoursWorkedTextBox" Text="" Grid.Row="4" Grid.Column="1" FontSize="16" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Stretch"></TextBox>
-        <TextBox Name="wednedayHoursWorkedTextBox" Text="" Grid.Row="5" Grid.Column="1" FontSize="16" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Stretch"></TextBox>
-        <TextBox Name="thursdayHoursWorkedTextBox" Text="" Grid.Row="6" Grid.Column="1" FontSize="16" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Stretch"></TextBox>
-        <TextBox Name="fridayHoursWorkedTextBox" Text="" Grid.Row="7" Grid.Column="1" FontSize="16" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Stretch"></TextBox>
-        <TextBox Name="saturdayHoursWorkedTextBox" Text="" Grid.Row="8" Grid.Column="1" FontSize="16" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Stretch"></TextBox>
-        <TextBox Name="sundayHoursWorkedTextBox" Text="" Grid.Row="9" Grid.Column="1" FontSize="16" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Stretch"></TextBox>
+        <TextBox  Name="mondayHoursWorkedTextBox" TextChanged="updatedHours" PreviewTextInput="NumberValidationTextBox" Text="0" Grid.Row="3" Grid.Column="1" FontSize="16" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Stretch"></TextBox>
+        <TextBox Name="tuesdayHoursWorkedTextBox"  PreviewTextInput="NumberValidationTextBox" Text="0" Grid.Row="4" Grid.Column="1" FontSize="16" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Stretch"></TextBox>
+        <TextBox Name="wednedayHoursWorkedTextBox" PreviewTextInput="NumberValidationTextBox" Text="0" Grid.Row="5" Grid.Column="1" FontSize="16" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Stretch"></TextBox>
+        <TextBox Name="thursdayHoursWorkedTextBox" PreviewTextInput="NumberValidationTextBox" Text="0" Grid.Row="6" Grid.Column="1" FontSize="16" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Stretch"></TextBox>
+        <TextBox Name="fridayHoursWorkedTextBox" PreviewTextInput="NumberValidationTextBox" Text="0" Grid.Row="7" Grid.Column="1" FontSize="16" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Stretch"></TextBox>
+        <TextBox Name="saturdayHoursWorkedTextBox" PreviewTextInput="NumberValidationTextBox" Text="0" Grid.Row="8" Grid.Column="1" FontSize="16" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Stretch"></TextBox>
+        <TextBox Name="sundayHoursWorkedTextBox" PreviewTextInput="NumberValidationTextBox" Text="0" Grid.Row="9" Grid.Column="1" FontSize="16" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Stretch"></TextBox>
 
         <!-- Lunch Hours -->
         <TextBlock Text="Lunch Break" Grid.Row="2" Grid.Column="2" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
-        <TextBox Name="mondayLunchTextBox" Text="" Grid.Row="3" Grid.Column="2" FontSize="16" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Stretch"></TextBox>
-        <TextBox Name="tuesdayLunchTextBox" Text="" Grid.Row="4" Grid.Column="2" FontSize="16" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Stretch"></TextBox>
-        <TextBox Name="wednesdayLunchTextBox" Text="" Grid.Row="5" Grid.Column="2" FontSize="16" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Stretch"></TextBox>
-        <TextBox Name="thursdayLunchTextBox" Text="" Grid.Row="6" Grid.Column="2" FontSize="16" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Stretch"></TextBox>
-        <TextBox Name="fridayLunchTextBox" Text="" Grid.Row="7" Grid.Column="2" FontSize="16" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Stretch"></TextBox>
-        <TextBox Name="saturdayLunchTextBox" Text="" Grid.Row="8" Grid.Column="2" FontSize="16" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Stretch"></TextBox>
-        <TextBox Name="sundayLunchTextBox" Text="" Grid.Row="9" Grid.Column="2" FontSize="16" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Stretch"></TextBox>
+        <TextBox Name="mondayLunchTextBox" PreviewTextInput="NumberValidationTextBox" Text="0.5" Grid.Row="3" Grid.Column="2" FontSize="16" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Stretch"></TextBox>
+        <TextBox Name="tuesdayLunchTextBox" PreviewTextInput="NumberValidationTextBox" Text="0.5" Grid.Row="4" Grid.Column="2" FontSize="16" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Stretch"></TextBox>
+        <TextBox Name="wednesdayLunchTextBox" PreviewTextInput="NumberValidationTextBox" Text="0.5" Grid.Row="5" Grid.Column="2" FontSize="16" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Stretch"></TextBox>
+        <TextBox Name="thursdayLunchTextBox" PreviewTextInput="NumberValidationTextBox" Text="0.5" Grid.Row="6" Grid.Column="2" FontSize="16" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Stretch"></TextBox>
+        <TextBox Name="fridayLunchTextBox" PreviewTextInput="NumberValidationTextBox" Text="0.5" Grid.Row="7" Grid.Column="2" FontSize="16" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Stretch"></TextBox>
+        <TextBox Name="saturdayLunchTextBox" PreviewTextInput="NumberValidationTextBox" Text="0.5" Grid.Row="8" Grid.Column="2" FontSize="16" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Stretch"></TextBox>
+        <TextBox Name="sundayLunchTextBox" PreviewTextInput="NumberValidationTextBox" Text="0.5" Grid.Row="9" Grid.Column="2" FontSize="16" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Stretch"></TextBox>
     
         <!-- Break Hours -->
         <TextBlock Text="Break" Grid.Row="2" Grid.Column="3" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
-        <TextBox Name="mondayBreakTextBox" Text="" Grid.Row="3" Grid.Column="3" FontSize="16" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Stretch"></TextBox>
-        <TextBox Name="tuesdayBreakTextBox" Text="" Grid.Row="4" Grid.Column="3" FontSize="16" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Stretch"></TextBox>
-        <TextBox Name="wednesdayBreakTextBox" Text="" Grid.Row="5" Grid.Column="3" FontSize="16" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Stretch"></TextBox>
-        <TextBox Name="thursdayBreakTextBox" Text="" Grid.Row="6" Grid.Column="3" FontSize="16" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Stretch"></TextBox>
-        <TextBox Name="fridayBreakTextBox" Text="" Grid.Row="7" Grid.Column="3" FontSize="16" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Stretch"></TextBox>
-        <TextBox Name="saturdayBreakTextBox" Text="" Grid.Row="8" Grid.Column="3" FontSize="16" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Stretch"></TextBox>
-        <TextBox Name="sundayBreakTextBox" Text="" Grid.Row="9" Grid.Column="3" FontSize="16" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Stretch"></TextBox>
+        <TextBox Name="mondayBreakTextBox" PreviewTextInput="NumberValidationTextBox" Text="0.5" Grid.Row="3" Grid.Column="3" FontSize="16" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Stretch"></TextBox>
+        <TextBox Name="tuesdayBreakTextBox" PreviewTextInput="NumberValidationTextBox" Text="0.5" Grid.Row="4" Grid.Column="3" FontSize="16" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Stretch"></TextBox>
+        <TextBox Name="wednesdayBreakTextBox" PreviewTextInput="NumberValidationTextBox" Text="0.5" Grid.Row="5" Grid.Column="3" FontSize="16" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Stretch"></TextBox>
+        <TextBox Name="thursdayBreakTextBox" PreviewTextInput="NumberValidationTextBox" Text="0.5" Grid.Row="6" Grid.Column="3" FontSize="16" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Stretch"></TextBox>
+        <TextBox Name="fridayBreakTextBox" PreviewTextInput="NumberValidationTextBox" Text="0.5" Grid.Row="7" Grid.Column="3" FontSize="16" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Stretch"></TextBox>
+        <TextBox Name="saturdayBreakTextBox" PreviewTextInput="NumberValidationTextBox" Text="0.5" Grid.Row="8" Grid.Column="3" FontSize="16" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Stretch"></TextBox>
+        <TextBox Name="sundayBreakTextBox" PreviewTextInput="NumberValidationTextBox" Text="30" Grid.Row="9" Grid.Column="3" FontSize="16" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Stretch"></TextBox>
         
         <!-- Pay Display -->
         <TextBlock Text="Total Hours" Grid.Row="11" Grid.Column="0" FontSize="16" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Stretch"></TextBlock>
