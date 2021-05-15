@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -16,48 +17,97 @@ using System.Windows.Shapes;
 
 namespace WorkPunch
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
+    //Worked on: Patrick
+
+    /*
+     Notes
+        We did not implement a database, so it resets evertime
+            except for your login name, we save a local txt file for that atleast
+     */
     public partial class MainWindow : Window
     {
-        Dictionary<string, Double> dayHour = new Dictionary<string, double>();
-        Dictionary<string, Double> dayBreak = new Dictionary<string, double>();
-        Dictionary<string, Double> dayLunch = new Dictionary<string, double>();
-        bool initialized = false;
+        static string path = "../../Employee.txt";
         double totalHours;
         double payedHours;
         double totalLunch;
         double unpayedBreak;
+        List<Job> jobsList;
+        Work_Week workWeek;
+        Job job;
+        Employee employee;
         public MainWindow()
         {
             InitializeComponent();
-            initialized = true;
+            jobsList = new List<Job>();
+            if (File.Exists(path))
+            {
+                employee = new Employee(File.ReadLines(path).First());
+            }
+            else
+            {
+                employee = new Employee();
+                new NewEmployee(employee).ShowDialog();
+            }
+            
 
         }
-        public void InitializeHoursWorked()
-        {
-            dayHour.Add("mondayHoursWorkedTextBox", double.Parse(mondayHoursWorkedTextBox.Text));
-            dayHour.Add("tuesdayHoursWorkedTextBox", double.Parse(tuesdayHoursWorkedTextBox.Text));
-            dayHour.Add("wednesdayHoursWorkedTextBox", double.Parse(wednesdayHoursWorkedTextBox.Text));
-            dayHour.Add("thursdayHoursWorkedTextBox", double.Parse(thursdayHoursWorkedTextBox.Text));
-            dayHour.Add("fridayHoursWorkedTextBox", double.Parse(fridayHoursWorkedTextBox.Text));
-            dayHour.Add("saturdayHoursWorkedTextBox", double.Parse(saturdayHoursWorkedTextBox.Text));
-            dayHour.Add("sundayHoursWorkedTextBox", double.Parse(sundayHoursWorkedTextBox.Text));
-        }
+    
         private void saveButton_Click(object sender, RoutedEventArgs e)
         {
+            if (hourlyPayTextBlock.Text != "")
+            {
+                try
+                {
+                    List<Work_Day> workDays = new List<Work_Day>();
+                    workDays.Add(new Work_Day(Day.Monday, double.Parse(mondayHoursWorkedTextBox.Text), double.Parse(mondayLunchTextBox.Text), double.Parse(mondayBreakTextBox.Text)));
+                    workDays.Add(new Work_Day(Day.Tuesday, double.Parse(tuesdayHoursWorkedTextBox.Text), double.Parse(tuesdayLunchTextBox.Text), double.Parse(tuesdayBreakTextBox.Text)));
+                    workDays.Add(new Work_Day(Day.Wednesday, double.Parse(wednesdayHoursWorkedTextBox.Text), double.Parse(wednesdayLunchTextBox.Text), double.Parse(wednesdayBreakTextBox.Text)));
+                    workDays.Add(new Work_Day(Day.Thursday, double.Parse(thursdayHoursWorkedTextBox.Text), double.Parse(thursdayLunchTextBox.Text), double.Parse(thursdayBreakTextBox.Text)));
+                    workDays.Add(new Work_Day(Day.Friday, double.Parse(fridayHoursWorkedTextBox.Text), double.Parse(fridayLunchTextBox.Text), double.Parse(fridayBreakTextBox.Text)));
+                    workDays.Add(new Work_Day(Day.Saturday, double.Parse(saturdayHoursWorkedTextBox.Text), double.Parse(saturdayLunchTextBox.Text), double.Parse(saturdayBreakTextBox.Text)));
+                    workDays.Add(new Work_Day(Day.Sunday, double.Parse(sundayHoursWorkedTextBox.Text), double.Parse(sundayLunchTextBox.Text), double.Parse(sundayBreakTextBox.Text)));
+                    workWeek = new Work_Week(new Job(double.Parse(payedBreakTextBlock.Text), double.Parse(hourlyPayTextBlock.Text)), workDays);
+                    payedHoursTextBlock.Text = workWeek.weeklyHours.ToString();
+                    overtimeTextBlock.Text = workWeek.overtimeHours.ToString();
+                    totalPayTextBlock.Text = workWeek.CalculatePay().ToString();
+                }
+                catch (Exception)
+                {
 
+                    MessageBox.Show("Please fill out all the boxes");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select your job");
+            }
         }
 
         private void invoiceButton_Click(object sender, RoutedEventArgs e)
         {
-
+            if (workWeek != null && job!=null)
+            {
+                new InvoiceMenu(workWeek,job,employee).ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Please save your hours and Select a Job");
+            }
         }
 
         private void jobComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            string selected = jobComboBox.SelectedItem.ToString();
 
+            foreach(Job j in jobsList)
+            {
+                if (j.getCompanyName() == selected)
+                {
+                    job = j;
+                }
+                hourlyPayTextBlock.Text = job.hourlyRate.ToString();
+                payedBreakTextBlock.Text = job.paidBreak.ToString();
+            }
         }
         private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
         {
@@ -72,105 +122,29 @@ namespace WorkPunch
             if (e.Text == "." && textBox.Text.Contains("."))
                 e.Handled = true;
         }
-        private void CalculatePay()
-        {
-            int overtimeBarrier = 40;
-            double overtimeMultiplier = 1.5;
-            double overtimeHours;
-            double pay,totalPay;
-            pay = double.Parse(hourlyPayTextBlock.Text);
-            payedHours = totalHours - unpayedBreak - totalLunch;
-            if (payedHours > overtimeBarrier)
-            {
-                overtimeHours = payedHours - overtimeBarrier;
-                totalPay = (payedHours-overtimeHours) * pay;
-                totalPay += overtimeHours * (pay * overtimeMultiplier);
-                overtimeTextBlock.Text = overtimeHours.ToString();
-            }
-            else
-            {
-                totalPay = pay * payedHours;
-                overtimeTextBlock.Text = "0";
-            }
-            payedHoursTextBlock.Text = payedHours.ToString();
-            totalPayTextBlock.Text = ("$" + totalPay.ToString());
-
-
-        }
-        private void CalculateHoursWorked()
-        {
-            totalHours = 0;
-            foreach (var item in dayHour)
-            {
-                totalHours += item.Value;
-            }
-        }
-        private void CalculateLunch()
-        {
-            totalLunch = 0;
-            foreach (var item in dayLunch)
-            {
-                totalLunch += item.Value;
-            }
-        }
-        private void CalculateUnpayedBreak()
-        {   
-            double payedBreak = double.Parse(payedBreakTextBlock.Text);
-            unpayedBreak = 0;
-            foreach (var item in dayBreak)
-            {
-                unpayedBreak += (item.Value-payedBreak);
-            }
-        }
-        private void UpdatedDailyHours(object sender, TextChangedEventArgs e)
+       
+       
+        private void MinimumZero(object sender, TextChangedEventArgs e)
         {
           
             var text = sender as TextBox;
-            if (text.Text != "" && text.Text != ".")
+            if (text.Text == "" || text.Text == "."||text.Text==null)
             {
-                double hours = double.Parse(text.Text);
-                dayHour[text.Name] = hours;
-                CalculateHoursWorked();
-                if (initialized)
-                {
-                    CalculatePay();
-                    if (totalHours < 0)
-                        payedHoursTextBlock.Text = "0";
-                    else
-                        payedHoursTextBlock.Text = payedHours.ToString();
-                }
+                text.Text = "0";
             }
-            
-            
-            
+
+
+
         }
-        private void UpdatedDailyLunch(object sender, TextChangedEventArgs e)
+
+
+            public void addJobButton_Click(object sender, RoutedEventArgs e)
         {
-            var text = sender as TextBox;
-            if (text.Text != "" && text.Text != ".")
-            {
-                double hours = double.Parse(text.Text);
-                dayLunch[text.Name] = hours;
-                CalculateLunch();
-                if (initialized)
-                    CalculatePay();
-            }
-            
-            
+            AddJobWindow addJobWindow = new AddJobWindow(this, jobsList);
+            addJobWindow.Show();
+ 
         }
-        private void UpdatedDailyBreak(object sender, TextChangedEventArgs e)
-        {
-            var text = sender as TextBox;
-            if (text.Text != "" && text.Text != ".")
-            {
-                
-                double hours = double.Parse(text.Text);
-                dayBreak[text.Name] = hours;
-                CalculateUnpayedBreak();
-                if (initialized)
-                    CalculatePay();
-            }
-           
-        }
+
+
     }
 }

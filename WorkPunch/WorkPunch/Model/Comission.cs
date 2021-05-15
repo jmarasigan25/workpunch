@@ -4,21 +4,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WorkPunch.Model
+namespace WorkPunch
 {
+    //Worked on: Patrick
     class Comission : Chargeable
     {
         public double commissionPercent { get; set; }
-        public Comission(int id,string name, long price, double commissionPercent)
+        public Comission(string name, double price, double commissionPercent)
         {
-            this.id = id;
             this.name = name;
             this.price = price;
             this.commissionPercent = commissionPercent;
         }
-        public override long CalculateTotalCost()
+        public override double CalculateTotalCost()
         {
-            return price * (long)(commissionPercent / 100);
+            return price * (double)(commissionPercent / 100);
         }
     }
 }

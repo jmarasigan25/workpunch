@@ -6,14 +6,23 @@ using System.Threading.Tasks;
 
 namespace WorkPunch
 {
-    class Employee
+    public class Employee
     {
         private int id;
-        private string name;
+        public string name { get; set; }
         private int age;
         private List<Job> jobs;
         private List<Work_Week> workWeeks;
 
+        public Employee()
+        {
+
+        }
+        public Employee(string name)
+        {
+            this.name = name;
+        }
+       
         public Employee(int id, string name, int age)
         {
             this.id = id;

@@ -6,14 +6,19 @@ using System.Threading.Tasks;
 
 namespace WorkPunch
 {
-    abstract class Chargeable
+    //Worked on: Patrick
+    public abstract class Chargeable
     {
         public int id { get; set; }
         public string name { get; set; }
-        public long price { get; set; }
-        public virtual long CalculateTotalCost()
+        public double price { get; set; }
+        public virtual double CalculateTotalCost()
         {
             return price;
+        }
+        public override string ToString()
+        {
+            return this.name;
         }
     }
 }
