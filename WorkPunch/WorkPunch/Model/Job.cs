@@ -23,6 +23,11 @@ namespace WorkPunch
             this.jobTitle = jobTitle;
         }
 
+        public string getCompanyName()
+        {
+            return companyName;
+        }
+
         public void setCompanyName(string companyName)
         {
             this.companyName = companyName;
@@ -37,5 +42,6 @@ namespace WorkPunch
         {
             this.paidBreak = paidBreak;
         }
+
     }
 }

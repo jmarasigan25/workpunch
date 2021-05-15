@@ -19,12 +19,14 @@ namespace WorkPunch
     /// </summary>
     public partial class AddJobWindow : Window
     {
+        MainWindow mainWindow;
         List<Job> jobsList;
-        public AddJobWindow()
+        public AddJobWindow(MainWindow mainWindow,List<Job> jobsList)
         {
             InitializeComponent();
 
-            //this.jobsList = jobsList;
+            this.mainWindow = mainWindow;
+            this.jobsList = jobsList;
         }
 
         private void addJobButton_Click(object sender, RoutedEventArgs e)
@@ -61,9 +63,16 @@ namespace WorkPunch
             if (!String.IsNullOrEmpty(jobTitleTextBox.Text) && !String.IsNullOrEmpty(companyTextBox.Text) && hourlyRate>0 && paidBreak>0)
             {
                 MessageBox.Show("Job added succesfully");
-                //jobsList.Add(job);
+                jobsList.Add(job);
+
+                foreach (Job listJob in jobsList)
+                {
+                    mainWindow.jobComboBox.Items.Add(listJob.getCompanyName());
+                }
+
+                this.Close();
             }
-            
+
         }
     }
 }

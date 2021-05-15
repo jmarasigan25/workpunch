@@ -34,10 +34,11 @@
         <!--  Misc-->
         <TextBlock Text="Payed Break" Grid.Row="0" Grid.Column="0" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
         <TextBlock Name="payedBreakTextBlock" Text="0.5" Grid.Row="0" Grid.Column="1" FontSize="16" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Stretch"></TextBlock>
-
+        
         <TextBlock  Text="Hourly Pay" Grid.Row="1" Grid.Column="0" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
         <TextBlock Name="hourlyPayTextBlock"  Text="20" Grid.Row="1" Grid.Column="1" FontSize="16" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Stretch"></TextBlock>
         <ComboBox Name="jobComboBox" Grid.Row="0" Grid.Column="3" SelectionChanged="jobComboBox_SelectionChanged">  </ComboBox>
+        <Button Name="addJobButton" Grid.Row="0" Grid.Column="2" Click="addJobButton_Click">Add Job</Button>
 
 
         <!-- Days -->
