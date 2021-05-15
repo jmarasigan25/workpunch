@@ -8,16 +8,29 @@ namespace WorkPunch
 {
     public class Job
     {
-        private string jobTitle;
-        private string companyName;
-        private double hourlyRate;
-        private double paidBreak;
-
+        public string jobTitle { get; set; }
+        public string companyName { get; set; }
+        public double hourlyRate { get; set; }
+        public double paidBreak { get; set; }
+        public static double OVERTIMEMULTIPLIER = 1.5;
         public Job()
         {
 
         }
+        public Job(double paidBreak,double hourlyRate)
+        {
+            this.paidBreak = paidBreak;
+            this.hourlyRate = hourlyRate;
+            
+        }
+        public Job(string jobTitle, string companyName,double paidBreak, double hourlyRate)
+        {
+            this.jobTitle = jobTitle;
+            this.companyName = companyName;
+            this.paidBreak = paidBreak;
+            this.hourlyRate = hourlyRate;
 
+        }
         public void setJobTitle(string jobTitle)
         {
             this.jobTitle = jobTitle;

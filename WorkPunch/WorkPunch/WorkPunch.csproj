@@ -35,6 +35,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Office.Interop.Excel.15.0.4795.1000\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -58,16 +62,34 @@
     <Compile Include="AddJobWindow.xaml.cs">
       <DependentUpon>AddJobWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CreateCommission.xaml.cs">
+      <DependentUpon>CreateCommission.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CreateProduct.xaml.cs">
+      <DependentUpon>CreateProduct.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="InvoiceMenu.xaml.cs">
+      <DependentUpon>InvoiceMenu.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Model\Employee.cs" />
     <Compile Include="Model\Invoice.cs" />
     <Compile Include="Model\Job.cs" />
     <Compile Include="Model\Product.cs" />
-    <Compile Include="Model\tes2.cs" />
-    <Compile Include="Model\test.cs" />
-    <Compile Include="Model\Test1.cs" />
     <Compile Include="Model\Work_Day.cs" />
     <Compile Include="Model\Work_Week.cs" />
     <Page Include="AddJobWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="CreateCommission.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="CreateProduct.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="InvoiceMenu.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -84,9 +106,16 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="NewEmployee.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\Comission.cs" />
+    <Compile Include="NewEmployee.xaml.cs">
+      <DependentUpon>NewEmployee.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -104,6 +133,8 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="Invoice\Template\Invoice_Template.xlsx" />
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -111,6 +142,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Invoice\NewFolder1\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

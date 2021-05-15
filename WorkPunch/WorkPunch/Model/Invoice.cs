@@ -4,8 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WorkPunch.Model
+namespace WorkPunch
 {
+    //Worked on: Patrick
     class Invoice
     {
         public int id { get; set; }
