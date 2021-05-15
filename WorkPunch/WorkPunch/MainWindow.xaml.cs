@@ -29,11 +29,12 @@ namespace WorkPunch
         double payedHours;
         double totalLunch;
         double unpayedBreak;
+        List<Job> jobsList;
         public MainWindow()
         {
             InitializeComponent();
             initialized = true;
-
+            jobsList = new List<Job>();
         }
         public void InitializeHoursWorked()
         {
@@ -171,6 +172,12 @@ namespace WorkPunch
                     CalculatePay();
             }
            
+        }
+
+        private void addJobButton_Click(object sender, RoutedEventArgs e)
+        {
+            AddJobWindow addJobWindow = new AddJobWindow(this, jobsList);
+            addJobWindow.Show();
         }
     }
 }
