@@ -30,6 +30,7 @@ namespace WorkPunch
         double totalLunch;
         double unpayedBreak;
         List<Job> jobsList;
+        Job job;
         public MainWindow()
         {
             InitializeComponent();
@@ -58,7 +59,16 @@ namespace WorkPunch
 
         private void jobComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            string selected = jobComboBox.SelectedItem.ToString();
 
+            foreach(Job j in jobsList)
+            {
+                if (j.getCompanyName() == selected)
+                {
+                    job = j;
+                }
+                MessageBox.Show("You have selected the time sheet for your job at " + job.getCompanyName());
+            }
         }
         private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
         {
